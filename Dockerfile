@@ -1,8 +1,8 @@
-FROM alpine:3.13
+FROM alpine:3.14
 
 LABEL description "Rainloop is a simple, modern & fast web-based client"
 
-ARG RAINLOOP_VER=1.15.0
+ARG RAINLOOP_VER=1.16.0
 
 ARG GPG_FINGERPRINT="3B79 7ECE 694F 3B7B 70F3  11A4 ED7C 49D9 87DA 4591"
 
