@@ -6,6 +6,9 @@ ARG RAINLOOP_VER=1.17.0
 
 ARG PHP_VERSION=85
 
+# 8.5.12 fixes CVE-2026-109618 and CVE-2026-109619
+ARG PHP_MIN_VER=8.5.12-r0
+
 ARG GPG_FINGERPRINT="3B79 7ECE 694F 3B7B 70F3  11A4 ED7C 49D9 87DA 4591"
 
 ENV UID=991 GID=991 UPLOAD_MAX_SIZE=25M LOG_TO_STDOUT=false MEMORY_LIMIT=128M
@@ -20,7 +23,7 @@ RUN apk update && apk -U upgrade \
     nginx \
     s6 \
     su-exec \
-    php${PHP_VERSION}-fpm \
+    "php${PHP_VERSION}-fpm>=${PHP_MIN_VER}" \
     php${PHP_VERSION}-curl \
     php${PHP_VERSION}-iconv \
     php${PHP_VERSION}-xml \
